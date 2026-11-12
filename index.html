@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101714">
+<meta name="description" content="Décorations de Noël imprimées en 3D, petits cadeaux et créations personnalisées aux Sables-d’Olonne.">
+<title>L’Atelier 3D — Un Noël pas comme les autres</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="announcement">LES PETITES CRÉATIONS QUI FONT LES GRANDS NOËLS <span>✳</span> FABRIQUÉ AUX SABLES-D’OLONNE</div>
+<header class="site-header">
+  <a class="brand" href="#" aria-label="L’Atelier 3D, accueil"><span class="brand-mark">A<span>3</span>D</span><span class="brand-name">L’ATELIER 3D<small>UN NOËL PAS COMME LES AUTRES</small></span></a>
+  <nav class="main-nav"><a href="#collection">La collection</a><a href="#atelier">Notre atelier</a><a href="#livraison">Livraison</a></nav>
+  <button class="cart-trigger" id="open-cart" aria-label="Ouvrir le panier">Panier <span id="cart-count">0</span></button>
+</header>
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="eyebrow-line"></span> COLLECTION DE NOËL · ÉDITION 2026</p>
+    <h1>Un Noël<br><em>pas comme</em><br>les autres.</h1>
+    <p class="hero-intro">Des petites créations imprimées en 3D, imaginées avec soin pour ajouter une touche de magie à vos fêtes.</p>
+    <div class="hero-actions"><a class="button button-light snow-button" href="#collection">Découvrir la collection <span>↗</span></a><span class="hero-note">Petites séries · Créations originales</span></div>
+  </div>
+  <div class="hero-art" aria-label="Décorations de Noël stylisées">
+    <div class="art-glow"></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+    <div class="hero-star star-a">✳</div><div class="hero-star star-b">✦</div><div class="hero-star star-c">✧</div>
+    <div class="ornament ornament-main"><div class="ornament-cap"></div><div class="ornament-loop"></div><span>✳</span></div>
+    <div class="ornament ornament-small"><div class="ornament-cap"></div><span>✦</span></div>
+    <div class="art-caption"><span>01 / 06</span><span>LA MAGIE DU FAIT-MAIN</span></div>
+  </div>
+  <div class="hero-bottom"><span>IMAGINÉ · IMPRIMÉ · PRÉPARÉ AVEC SOIN</span><span>↓ FAITES DÉFILER</span></div>
+</section>
+<section class="intro-strip" id="atelier"><p>UNE AUTRE FAÇON D’OFFRIR</p><h2>Le plaisir des petits détails,<br><em>la magie des objets uniques.</em></h2><p class="intro-text">Chaque pièce prend forme dans notre atelier grâce à l’impression 3D. Des objets simples, ludiques et personnalisables, à offrir ou à garder.</p></section>
+<section class="collection section-wrap" id="collection">
+  <div class="section-heading"><div><p class="eyebrow">À DÉCOUVRIR</p><h2>La collection <em>de Noël.</em></h2></div><p>Six idées originales pour glisser un peu de magie sous le sapin.</p></div>
+  <div class="product-grid" id="product-grid"></div>
+</section>
+<section class="feature-band" id="livraison"><div class="feature-mark">✳</div><div><p class="eyebrow">DE L’ATELIER À CHEZ VOUS</p><h2>Créé ici.<br><em>À offrir partout.</em></h2></div><div class="feature-text"><p>Les créations sont imaginées, imprimées et préparées aux Sables-d’Olonne.</p><ul><li>Remise en main propre aux Sables-d’Olonne</li><li>Envoi par colis possible</li><li>Chaque commande est préparée avec attention</li></ul></div></section>
+<section class="steps section-wrap"><p class="eyebrow">SIMPLE, DU DÉBUT À LA FIN</p><h2>Votre Noël,<br><em>en trois étapes.</em></h2><div class="step-grid"><article><span>01</span><h3>Choisissez</h3><p>Parcourez la collection et ajoutez vos coups de cœur au panier.</p></article><article><span>02</span><h3>Préparez votre demande</h3><p>Indiquez vos coordonnées et votre préférence de remise ou d’envoi.</p></article><article><span>03</span><h3>On s’occupe du reste</h3><p>Nous vous recontactons pour confirmer la disponibilité et les modalités.</p></article></div></section>
+</main>
+<footer class="footer"><a class="brand" href="#"><span class="brand-mark">A<span>3</span>D</span><span class="brand-name">L’ATELIER 3D<small>UN NOËL PAS COMME LES AUTRES</small></span></a><p>Imaginé, imprimé et préparé aux Sables-d’Olonne.</p><span>© 2026 L’ATELIER 3D</span></footer>
+<div class="cart-backdrop" id="cart-backdrop"></div>
+<aside class="cart-panel" id="cart-panel" aria-label="Votre panier" aria-hidden="true"><div class="cart-head"><div><p class="eyebrow">VOTRE SÉLECTION</p><h2>Le panier<span>.</span></h2></div><button class="icon-button" id="close-cart" aria-label="Fermer">×</button></div><div class="cart-items" id="cart-items"><p class="empty-cart">Votre panier attend ses premières créations.</p></div><div class="cart-foot"><div class="subtotal"><span>Sous-total</span><strong id="cart-total">0,00 €</strong></div><p>Hors frais d’envoi éventuels. Remise en main propre aux Sables-d’Olonne.</p><button class="button button-dark snow-button" id="checkout-button">Préparer ma demande <span>↗</span></button><small class="payment-note">Le paiement en ligne n’est pas encore activé. Aucune somme ne sera débitée.</small></div></aside>
+<dialog id="order-dialog" class="order-dialog"><form id="order-form"><div class="dialog-top"><p class="eyebrow">DERNIÈRE ÉTAPE</p><button type="button" class="icon-button" id="close-order" aria-label="Fermer">×</button></div><h2>Votre demande<br><em>de commande.</em></h2><p class="form-intro">Renseignez vos coordonnées. Votre demande sera préparée dans votre application e-mail pour nous être envoyée.</p><label>Nom et prénom<input name="name" required autocomplete="name" placeholder="Votre nom"></label><label>Adresse e-mail<input name="email" type="email" required autocomplete="email" placeholder="vous@exemple.fr"></label><label>Remise souhaitée<select name="delivery"><option>Remise en main propre aux Sables-d’Olonne</option><option>Envoi par colis (frais à confirmer)</option></select></label><label>Précisions (facultatif)<textarea name="notes" rows="3" placeholder="Initiale souhaitée, quantité, question…"></textarea></label><div class="dialog-total"><span>Total estimé</span><strong id="dialog-total">0,00 €</strong></div><button class="button button-dark snow-button" type="submit">Préparer l’e-mail de commande ↗</button><p class="payment-note">Cette étape ne constitue pas un paiement ni une confirmation de commande.</p></form></dialog>
+<div class="toast" id="toast" role="status"></div>
+<script src="js/app.js"></script>
+</body></html>
