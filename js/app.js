@@ -1,4 +1,5 @@
-const PRODUCTS=[
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+let PRODUCTS=[
 {id:"flakes",name:"Flocons & Étoiles de sapin",price:3,unit:"la pièce",desc:"Des décorations délicates pour faire briller le sapin.",symbol:"✳",tag:"DÉCORATION"},
 {id:"animals",name:"Mini-animaux articulés",price:3,unit:"la pièce",desc:"De petites créatures ludiques à collectionner ou à offrir.",symbol:"♧",tag:"PETIT CADEAU"},
 {id:"initial",name:"Porte-clés Initiale (A–Z)",price:3,unit:"la pièce",desc:"Une initiale personnalisée à emporter partout.",symbol:"A",tag:"PERSONNALISABLE"},
@@ -6,7 +7,9 @@ const PRODUCTS=[
 {id:"lantern",name:"Photophore village de Noël",price:5,unit:"la pièce",desc:"Un petit village pour une grande ambiance. Bougie LED uniquement.",symbol:"⌂",tag:"AMBIANCE"},
 {id:"puzzle",name:"Boîte casse-tête secrète",price:8,unit:"la pièce",desc:"Un cadeau dans le cadeau… à vous de percer le secret.",symbol:"◇",tag:"JEU & SURPRISE"}
 ];
-const $=s=>document.querySelector(s);let cart=JSON.parse(localStorage.getItem("atelier3d-cart")||"{}");
+const $=s=>document.querySelector(s);
+async function syncProducts(){try{const u=window.ATELIER_SUPABASE_URL,k=window.ATELIER_SUPABASE_ANON_KEY;if(!u||u.includes("VOTRE-PROJET")||!k||k.includes("VOTRE_CLE"))return;const sb=createClient(u,k);const {data,error}=await sb.from("products").select("*").eq("active",true).order("name");if(!error&&data?.length){PRODUCTS=data.map(p=>({id:p.id,name:p.name,price:Number(p.price),unit:p.unit,desc:p.description,symbol:p.symbol,tag:p.tag}));renderProducts();renderCart()}}catch(e){console.warn("Catalogue Supabase indisponible, affichage du catalogue local.",e)}}
+let cart=JSON.parse(localStorage.getItem("atelier3d-cart")||"{}");
 const euro=n=>n.toLocaleString("fr-FR",{style:"currency",currency:"EUR"});
 function save(){localStorage.setItem("atelier3d-cart",JSON.stringify(cart));renderCart()}
 function renderProducts(){const grid=$("#product-grid");grid.innerHTML=PRODUCTS.map(p=>`<article class="product-card"><div class="product-art"><span class="product-symbol">${p.symbol}</span></div><div class="product-meta"><p class="product-kicker">${p.tag}</p><div class="product-title-row"><h3>${p.name}</h3><span class="product-price">${euro(p.price)}</span></div><p class="product-desc">${p.desc}</p><button class="add-button" data-add="${p.id}">AJOUTER AU PANIER <span>＋</span></button></div></article>`).join("");grid.addEventListener("click",e=>{const b=e.target.closest("[data-add]");if(!b)return;cart[b.dataset.add]=(cart[b.dataset.add]||0)+1;save();toast("Ajouté au panier");openCart()})}
@@ -17,4 +20,4 @@ function closeCart(){$("#cart-panel").classList.remove("open");$("#cart-backdrop
 let toastTimer;function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),2200)}
 $("#product-grid").addEventListener("click",()=>{});$("#open-cart").addEventListener("click",openCart);$("#close-cart").addEventListener("click",closeCart);$("#cart-backdrop").addEventListener("click",closeCart);
 $("#cart-items").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const id=b.dataset.id||b.dataset.remove;if(b.dataset.change){cart[id]=Math.max(0,(cart[id]||0)+Number(b.dataset.change));if(!cart[id])delete cart[id]}else if(b.dataset.remove)delete cart[id];save()});
-renderProducts();renderCart();
+renderProducts();renderCart();syncProducts();
